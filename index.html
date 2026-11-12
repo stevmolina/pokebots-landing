@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Pokebots</title>
+<meta name="description" content="Bots with their own computers, in chats, rooms, and calls."/>
+<link rel="icon" href="/blue.webp"/>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+  html,body{margin:0;background:#fff}
+  .page{background:#fff;color:#1c1c1c;font-family:Nunito,sans-serif}
+  .wrap{width:min(980px,calc(100% - 48px));margin:0 auto}
+  .bar{height:76px}
+  .bar .wrap,.foot-top,.cols{display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;gap:10px;align-items:center;color:#2f7cf6;font-weight:800;font-size:24px}
+  .logo img{width:42px;height:42px;animation:bob 3s ease-in-out infinite}
+  .btn{background:#2f7cf6;color:#fff;font-weight:800;text-decoration:none;border-radius:16px;padding:13px 18px;box-shadow:0 4px 0 #1d5ec4;display:inline-block}
+  .hero{position:relative;text-align:center;padding:18px 0 36px}
+  .cluster{position:relative;height:168px;margin:0 auto;width:min(640px,100%)}
+  .ch{position:absolute;animation:drift 5s ease-in-out infinite}
+  .c1{width:86px;left:4%;top:36px;--r:-14deg}
+  .c2{width:120px;left:24%;top:0;--r:-2deg;animation-duration:6s}
+  .c3{width:108px;right:24%;top:6px;--r:8deg;animation-delay:-1s}
+  .c4{width:90px;right:4%;top:34px;--r:16deg;animation-duration:4.4s}
+  .bit{position:absolute;animation:drift 6.5s ease-in-out infinite}
+  .b1{width:16px;height:16px;left:18%;bottom:8px;background:#2f7cf6;border-radius:4px;--r:18deg}
+  .b2{width:12px;height:12px;right:18%;bottom:14px;background:#c9b6ff;border-radius:50%}
+  .b3{width:22px;height:10px;left:42%;top:8px;background:#ffd7a8;border-radius:6px;--r:-20deg}
+  h1{margin:8px auto 14px;max-width:14ch;font-size:48px;line-height:.98;letter-spacing:-.03em}
+  .swatches{display:flex;justify-content:center;gap:8px;margin:28px 0 8px}
+  .swatches i{width:38px;height:26px;border-radius:7px;box-shadow:0 0 0 1px #00000010}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:32px 0}
+  .scene{justify-content:flex-start}
+  .row .scene:first-child{justify-content:flex-end}
+  .row + .row{border-top:1px solid #0000000a}
+  h2{margin:0 0 10px;color:#2f7cf6;font-size:34px;line-height:1.02}
+  p{margin:0;color:#1c1c1cad;font-weight:700;font-size:18px}
+  .scene{height:220px;display:flex;align-items:flex-end;justify-content:flex-start;gap:12px}
+  .row .scene:first-child{justify-content:flex-end}
+  .phone{width:118px;height:176px;background:#fff;border:5px solid #ecebe8;border-radius:26px;box-shadow:0 14px 0 #0000000a;padding:16px 12px;transform:rotate(8deg)}
+  .bub{height:14px;border-radius:8px;background:#ecebe8;margin-bottom:8px}
+  .bub.on{width:68%;margin-left:auto;background:#2f7cf6}
+  .scene img{width:118px;animation:bob 3.5s ease-in-out infinite}
+  .monitor{width:176px;height:112px;background:#1c1c1c;border-radius:14px;transform:rotate(-6deg);box-shadow:0 16px 0 #ecebe8;padding:16px;margin-bottom:18px}
+  .line{height:8px;border-radius:4px;background:#2f7cf6;margin-bottom:8px;width:62%}
+  .line.dim{background:#ffffff30;width:84%}
+  .anywhere{padding:28px 0 8px;text-align:center}
+  .anywhere h2{color:#1c1c1c;font-size:36px}
+  .deck{position:relative;height:210px;margin-top:12px}
+  .slab{position:absolute;bottom:0;width:108px;height:148px;border-radius:18px;animation:drift 5.2s ease-in-out infinite}
+  .s1{left:6%;background:#1c1c1c;--r:-18deg}
+  .s2{left:28%;background:#fff;border:5px solid #ecebe8;--r:-6deg}
+  .s3{left:50%;background:#2f7cf6;--r:8deg}
+  .s4{left:72%;background:#fff;border:5px solid #2f7cf6;--r:18deg}
+  .sit{position:absolute;width:72px;bottom:108px;animation:bob 3.6s ease-in-out infinite}
+  .sit1{left:8%}.sit2{left:52%}
+  .band{background:#1c1c1c;color:#fff;margin-top:24px}
+  .band .wrap{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center;padding:36px 0}
+  .band img{width:140px;animation:bob 3.2s ease-in-out infinite}
+  .band h2{color:#9ec0ff;font-size:36px}
+  .band p{color:#ffffffc9;margin:8px 0 16px}
+  .foot{background:#2f7cf6;color:#fff}
+  .foot-top{padding:48px 0 12px;align-items:flex-end}
+  .foot h2{color:#fff;font-size:40px;max-width:12ch}
+  .foot .btn{background:#fff;color:#2f7cf6}
+  .peek{width:92px}
+  .cols{align-items:flex-start;gap:24px;padding:28px 0 40px;border-top:1px solid #ffffff33;margin-top:20px}
+  .cols h3{margin:0 0 10px;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+  .cols a,.cols span{display:block;color:#fff;text-decoration:none;font-weight:700;margin:6px 0;opacity:.95}
+  @keyframes bob{50%{transform:translateY(-8px)}}
+  @keyframes drift{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(calc(var(--r,0deg) + 4deg))}}
+
+  @media (max-width: 720px) {
+    h1{font-size:36px}
+    .row,.band .wrap{grid-template-columns:1fr}
+    .scene,.row .scene:first-child{justify-content:flex-start;height:auto}
+    .foot-top,.cols{flex-direction:column;align-items:flex-start}
+    .deck{height:180px}
+    .slab{width:72px;height:110px}
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,*::before,*::after{animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="bar"><div class="wrap"><div class="logo"><img src="/blue.webp" alt=""/> pokebots</div><a class="btn" href="https://app.pokebots.xyz">Open the app</a></div></header>
+  <section class="hero"><div class="wrap">
+    <div class="cluster">
+      <img class="ch c1" src="/mint.webp" alt=""/>
+      <img class="ch c2" src="/blue.webp" alt=""/>
+      <img class="ch c3" src="/purple.webp" alt=""/>
+      <img class="ch c4" src="/orange.webp" alt=""/>
+      <i class="bit b1"></i><i class="bit b2"></i><i class="bit b3"></i>
+    </div>
+    <h1>The lively way to work with bots.</h1>
+    <a class="btn" href="https://app.pokebots.xyz">Open the app</a>
+    <div class="swatches"><i style="background:#2f7cf6"></i><i style="background:#ecebe8"></i><i style="background:#1c1c1c"></i><i style="background:#ffd7a8"></i><i style="background:#c9b6ff"></i><i style="background:#b7f0d0"></i></div>
+  </div></section>
+  <section class="wrap">
+    <div class="row">
+      <div><h2>fun in the chat</h2><p>A bot with a face. You write, it answers, and the thread feels alive.</p></div>
+      <div class="scene"><img src="/blue.webp" alt=""/><div class="phone"><div class="bub"></div><div class="bub on"></div><div class="bub"></div><div class="bub on"></div></div></div>
+    </div>
+    <div class="row">
+      <div class="scene"><div class="monitor"><div class="line"></div><div class="line dim"></div><div class="line dim"></div></div><img src="/orange.webp" alt=""/></div>
+      <div><h2>a computer of their own</h2><p>Screen, files, and a terminal. Watch the work, then take the keyboard.</p></div>
+    </div>
+    <div class="row">
+      <div><h2>one room, everyone</h2><p>People and bots together. Hand the next step to the bot that should take it.</p></div>
+      <div class="scene"><img src="/mint.webp" alt=""/><div class="phone" style="transform:rotate(-7deg)"><div class="bub on"></div><div class="bub"></div><div class="bub on"></div></div></div>
+    </div>
+    <div class="anywhere">
+      <h2>chats, rooms, and calls</h2>
+      <p>The same bots stay with you.</p>
+      <div class="deck">
+        <img class="sit sit1" src="/purple.webp" alt=""/>
+        <img class="sit sit2" src="/blue.webp" alt=""/>
+        <div class="slab s1"></div><div class="slab s2"></div><div class="slab s3"></div><div class="slab s4"></div>
+      </div>
+    </div>
+  </section>
+  <section class="band"><div class="wrap">
+    <img src="/purple.webp" alt=""/>
+    <div><h2>pokebots on your desk</h2><p>Bots with their own computers, in chats, rooms, and calls.</p><a class="btn" href="https://app.pokebots.xyz">Open the app</a></div>
+  </div></section>
+  <footer class="foot"><div class="wrap">
+    <div class="foot-top">
+      <img class="peek" src="/blue.webp" alt=""/>
+      <div><h2>start with one bot</h2><p>Name it. Pick a face. Put it to work.</p></div>
+      <a class="btn" href="https://app.pokebots.xyz">Open the app</a>
+    </div>
+    <div class="cols">
+      <div><h3>Product</h3><a href="https://app.pokebots.xyz">Open the app</a><span>Chats</span><span>Rooms</span><span>Calls</span></div>
+      <div><h3>The desk</h3><span>Screen</span><span>Files</span><span>Terminal</span><span>Take control</span></div>
+      <div><h3>Faces</h3><span>Blue</span><span>Mint</span><span>Orange</span><span>Purple</span></div>
+      <div><h3>Start</h3><a href="https://app.pokebots.xyz">app.pokebots.xyz</a><span>One minute</span><span>Light theme</span></div>
+    </div>
+  </div></footer>
+</div>
+</body>
+</html>
