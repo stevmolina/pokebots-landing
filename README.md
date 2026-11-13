@@ -2,7 +2,7 @@
 
 The public page at https://pokebots.xyz/.
 
-`index.html` is the page. The four plush images sit next to it, and the mascot scenes and props are in `art/`. `sw.js` replaces the old app's service worker and sends its tabs to the app's new address, https://api.pokebots.xyz/app.
+`index.html` is the page. The four plush images sit next to it, and the mascot scenes and props are in `art/`. `sw.js` replaces the old app's service worker and sends its tabs to the app, https://app.pokebots.xyz.
 
 The two other designs we tried (Toy Box and Night Desk) are in commit 827ab62 on the `landing-options` branch.
 
