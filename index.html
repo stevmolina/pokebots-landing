@@ -140,11 +140,15 @@ p{margin:0}
 .dev .inner{animation:floaty 7s ease-in-out infinite}
 .phone{width:120px;height:230px;border-radius:26px;background:#fff;border:6px solid #1a2a5e;box-shadow:12px 14px 0 #1a2a5e22;padding:16px 10px;display:flex;flex-direction:column;gap:8px}
 .phone i{display:block;height:14px;border-radius:7px;background:var(--paper)}
+.phone .message{display:flex;align-items:center;gap:5px}
+.phone .message img{width:24px;height:24px;flex:none;border-radius:50%;background:#e8e1ff;object-fit:cover}
+.phone .message i{flex:1;height:14px}
 .phone i.on{background:var(--blue);width:70%;margin-left:auto}
 .laptop{width:300px}
 .laptop .scr{height:180px;border-radius:14px 14px 4px 4px;background:#16192b;border:6px solid #1a2a5e;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .laptop .scr i{border-radius:8px;background:#ffffff14}
-.laptop .scr i:first-child{grid-row:span 2;background:linear-gradient(160deg,#2f7cf6,#6aa5ff)}
+.laptop .scr .video{grid-row:span 2;display:grid;place-items:end center;overflow:hidden;border-radius:8px;background:linear-gradient(160deg,#2f7cf6,#6aa5ff)}
+.laptop .scr .video img{display:block;width:95%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 5px 5px #164f9b55)}
 .laptop .base{height:16px;margin:0 -24px;border-radius:0 0 14px 14px;background:#1a2a5e}
 .tile{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;box-shadow:0 6px 0 #00000022}
 .tile svg{width:30px;height:30px}
@@ -223,6 +227,7 @@ p{margin:0}
   .row h2,.row p{margin-left:auto;margin-right:auto}
   .field{height:380px}
   .laptop{width:210px}.laptop .scr{height:126px}
+  .field .dev:has(.laptop){margin-left:-105px!important}
   .phone{width:90px;height:170px}
   .band .wrap{text-align:center;min-height:0;padding:56px 0}
   .band p{margin:0 auto 26px}
@@ -361,9 +366,9 @@ p{margin:0}
     </div>
   </div>
   <div class="field" aria-hidden="true">
-    <div class="dev" style="left:4%;top:12%" data-speed=".18"><div class="inner" style="--rot:-16deg"><div class="phone"><i></i><i class="on"></i><i></i><i class="on"></i><i></i></div></div></div>
-    <div class="dev" style="left:50%;top:22%;margin-left:-150px" data-speed="-.08"><div class="inner" style="--rot:4deg;animation-delay:-2s"><div class="laptop"><div class="scr"><i></i><i></i><i></i></div><div class="base"></div></div></div></div>
-    <div class="dev" style="right:6%;top:4%" data-speed=".24"><div class="inner" style="--rot:14deg;animation-delay:-4s"><div class="phone" style="border-color:#9b82f0"><i class="on"></i><i></i><i class="on"></i><i></i></div></div></div>
+    <div class="dev" style="left:4%;top:12%" data-speed=".18"><div class="inner" style="--rot:-16deg"><div class="phone"><div class="message"><img src="purple.webp" alt=""/><i></i></div><i class="on"></i><i></i><i class="on"></i><i></i></div></div></div>
+    <div class="dev" style="left:50%;top:22%;margin-left:-150px" data-speed="-.08"><div class="inner" style="--rot:4deg;animation-delay:-2s"><div class="laptop"><div class="scr"><div class="video"><img src="blue.webp" alt=""/></div><i></i><i></i></div><div class="base"></div></div></div></div>
+    <div class="dev" style="right:6%;top:4%" data-speed=".24"><div class="inner" style="--rot:14deg;animation-delay:-4s"><div class="phone" style="border-color:#9b82f0"><i class="on"></i><div class="message"><img src="orange.webp" alt=""/><i></i></div><i class="on"></i><i></i></div></div></div>
     <div class="dev" style="left:22%;top:66%" data-speed="-.2"><div class="inner" style="--rot:-10deg;animation-delay:-1s"><div class="tile" style="background:#5cc79e"><svg viewBox="0 0 24 24" fill="#fff"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 19c0-3 3-5 6-5s6 2 6 5zM12 19c0-3 2-5 4-5 3 0 6 2 6 5z"/></svg></div></div></div>
     <div class="dev" style="right:24%;top:70%" data-speed=".14"><div class="inner" style="--rot:12deg;animation-delay:-3s"><div class="tile" style="background:#f2843c"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 3l3 4-2 2c1 3 4 6 7 7l2-2 4 3-2 4C10 21 3 14 2 5z"/></svg></div></div></div>
     <div class="dev" style="left:14%;top:0" data-speed="-.3"><div class="inner" style="--rot:20deg;animation-delay:-5s"><div class="tile" style="background:#2f7cf6;width:46px;height:46px"><svg viewBox="0 0 24 24" fill="#fff"><path d="M4 4h16v11H9l-5 4z"/></svg></div></div></div>
